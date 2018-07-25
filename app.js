@@ -1,8 +1,6 @@
 const Koa = require('koa')
 const app = new Koa()
+const index = require('./routes/index')
 
-app.use(async ctx => {
-    ctx.body = 'Hello World';
-});
-
+app.use(index.routes(), index.allowedMethods())
 app.listen(8888);
