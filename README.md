@@ -221,5 +221,24 @@ router.get('/ejs', controller.getList)
 ```
 这个时候，可以看到页面上渲染出来的数据了。大概的框架出来了，但我们还有后续的工作要做。
 
----
-未完待续
+### 静态文件
+
+项目里，我们还需要处理静态文件，比如css和js文件、图片、字体等。
+1. 在app文件夹下新建一个public的目录；
+2. 然后我们安装处理静态文件的插件：```npm install koa-static --save```
+3. 尝试在模板里插入一张图片，假设图片路径是/app/public/assets/images/img1.png,模板里插入
+```
+<img src="/assets/images/img1.png" alt="">
+```
+注意，这里不再需要/app/public这两个目录，直接写public下面的就可以了；
+4. 尝试添加样式和js文件:在public里新建样式文件和js文件，并把它们添加到模板文件里去，刷新页面可以看到效果了，证明引入是成功的。
+5. 
+
+### 日志处理
+1. 我们要在开发过程中看到日志输出在控制台的话，我们要安装```koa-logger```插件，```npm install koa-logger --save```,然后在app.js文件里添加进去：
+```
+const logger = require('koa-logger')
+app.use(logger())
+ 
+ ```
+2. 在项目运行的过程中，我们有的地方需要记录日志，以便出错时我们好定位问题；在这里，我们使用```log4js```这个插件来输出日志文件；【配置太长，详细可以查看该[log4js的文档](https://www.npmjs.com/package/log4js)】
