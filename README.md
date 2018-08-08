@@ -242,3 +242,37 @@ app.use(logger())
  
  ```
 2. 在项目运行的过程中，我们有的地方需要记录日志，以便出错时我们好定位问题；在这里，我们使用```log4js```这个插件来输出日志文件；【配置太长，详细可以查看该[log4js的文档](https://www.npmjs.com/package/log4js)】
+
+3. 其他一些用到的插件：```'koa-json''koa-onerror''koa-bodyparser''koa-logger'```也都安装上，具体作用可查看文档；
+
+
+### 开发工具
+
+#### Gulp
+我们需要用到构建工具来处理我们的样式和JS,比如编译less\压缩和混淆等，在这里我们用Gulp来帮助我们实现上面的功能。
+1. 我们先安装gulp:
+```npm install gulp --save-dev```
+2. 再安装一些必要的的插件：(详细见文件package.json)
+   ```
+   "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-base64": "^0.1.3",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-css-base64": "^1.3.4",
+    "gulp-less": "^3.5.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rev": "^8.1.1",
+    "gulp-rev-collector": "^1.3.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^5.0.0",
+    "less-plugin-autoprefix": "^1.5.1",
+    "run-sequence": "^2.2.1"
+   ```
+3. 接下来，我们创建一个```gulpfile.js```的配置文件，详情见项目里的文件；
+4. 接下来，我们运行```npm run dev```再新建一个命令窗口，运行```gulp browser-sync```,这样就实现了浏览器的自动刷新及自动处理；
+当然，目录创建是写对啊！
